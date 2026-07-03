@@ -1,3 +1,3 @@
-public interface PlanSucripcion {
+public interface PlanSuscripcion {
     public double calcularCosto(int meses);
 }
