@@ -1,4 +1,6 @@
 void main() {
+    Scanner teclado = new Scanner(System.in);
+
     ArrayList<PlanSuscripcion> planesAlmacenados = new ArrayList<>();
 
     PlanSuscripcion PlanEstandar = new Planestandar();
@@ -23,6 +25,48 @@ void main() {
 
     Netflix.CalcularCostoPorCuenta();
 
+    boolean continuar = true;
+    int opc = 0;
+
+    System.out.println("Bienvenido al sistema de las meras riatas");
+    do {
+       try{
+           System.out.println("Escoga una opcion");
+           System.out.println("1) Asignar una cuenta a la plataforma\n2) Cuentas en ciertos planes\n3) Dinero total en streaming\n4) Salir");
+           opc = teclado.nextInt();
+       }
+       catch(Exception ex){
+           teclado.nextLine();
+           opc = 0;
+           System.out.println("Opcion ingresada incorrectamente");
+       }
+       switch (opc){
+
+           /* ZOE - Creaacion de cuenta y asignacion a la plataforma */
+           case 1:
+
+           break;
+
+           /* X - Impresion de cuentas en cierto plan */
+           case 2:
+
+           break;
+
+           /* X - Impresion total de dinero de cada tipo de plan y el total */
+           case 3:
+
+           break;
+
+           /* Salir */
+           case 4:
+               System.out.println("Saliendo... Gracias!");
+               continuar = false;
+           break;
+           default:
+               System.out.println("Opcion ingresada incorrectamente");
+           break;
+       }
+    }while(continuar);
 
 }
 public void desplegarLista(ArrayList<PlanSuscripcion> ps){
