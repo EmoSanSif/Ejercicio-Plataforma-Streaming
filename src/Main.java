@@ -10,8 +10,8 @@ void main() {
     PlataformaStreaming Netflix = new PlataformaStreaming();
 
     Cuenta_Usuario U1 = new Usuario_Basico("aa@bb.com", 12, PlanBasico);
-    Cuenta_Usuario U2 = new Usuario_Basico("aa1@bb.com", 12, PlanBasico);
-    Cuenta_Usuario U3 = new Usuario_Basico("aa2@bb.com", 12, PlanBasico);
+    Cuenta_Usuario U2 = new Usuario_Basico("aa1@bb.com", 12, PlanEstandar);
+    Cuenta_Usuario U3 = new Usuario_Basico("aa2@bb.com", 12, PlanPremium);
 
     Netflix.addUsuarios(U1);
     Netflix.addUsuarios(U2);
@@ -23,7 +23,6 @@ void main() {
 
     desplegarLista(planesAlmacenados);
 
-    Netflix.CalcularCostoPorCuenta();
 
     boolean continuar = true;
     int opc = 0;
@@ -73,8 +72,39 @@ void main() {
                System.out.println("Su usuario ha sido agregado exitosamente");
            break;
 
-           /* X - Impresion de cuentas en cierto plan */
+           /* Emilio - Impresion de cuentas en cierto plan */
            case 2:
+               boolean continua = true;
+               int plan_selec = 0;
+
+               System.out.println("Escoga el tipo de plan del que quiere ver las cuentas ");
+                   try{
+                       desplegarLista(planesAlmacenados);
+                       plan_selec = teclado.nextInt();
+                   }
+                   catch(Exception ex){
+                       teclado.nextLine();
+                       plan_selec = 0;
+                       System.out.println("Opcion ingresada incorrectamente");
+                   }
+                   for (Cuenta_Usuario cu : Netflix.cuentasAlmacenadas) {
+                       if (planesAlmacenados.get(plan_selec-1) instanceof Planbasico) {
+                           if( cu instanceof Usuario_Basico) {
+                               System.out.println(cu.toString());
+                           }
+                       }
+                       else if (planesAlmacenados.get(plan_selec-1) instanceof Planestandar) {
+                           if( cu instanceof Usuario_Estandar) {
+                               System.out.println(cu.toString());
+                           }
+                       }
+                       else if(planesAlmacenados.get(plan_selec-1) instanceof Planpremium) {
+                           if( cu instanceof Usuario_Premium) {
+                               System.out.println(cu.toString());
+                           }
+                       }
+                   }
+
            break;
 
            /* CARLOS - Impresion total de dinero de cada tipo de plan y el total */
