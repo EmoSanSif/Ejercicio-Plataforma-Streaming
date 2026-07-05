@@ -40,10 +40,41 @@ void main() {
            opc = 0;
            System.out.println("Opcion ingresada incorrectamente");
        }
+       teclado.nextLine();
        switch (opc){
 
            /* ZOE - Creaacion de cuenta y asignacion a la plataforma */
            case 1:
+
+               System.out.println("Ingrese el correo electroico:");
+               String correo = teclado.nextLine();
+               System.out.println("Ingrese los meses de actividad");
+               int actividad = teclado.nextInt();
+               System.out.println("Ingrese el Plan:");
+               desplegarLista(planesAlmacenados);
+               int planseleccionado= teclado.nextInt();
+
+             if(planseleccionado>=1 && planseleccionado<=planesAlmacenados.size()) {
+                 PlanSuscripcion planseleccion = planesAlmacenados.get(planseleccionado - 1);
+
+              if (planseleccionado==1){
+               Cuenta_Usuario  nuevousuario = new Usuario_Basico (correo, actividad, planesAlmacenados.get(planseleccionado-1));
+                  Netflix.addUsuarios(nuevousuario);
+
+                  } else if (planseleccionado==2) {
+                  Cuenta_Usuario nuevousuario= new Usuario_Estandar(correo, actividad, planesAlmacenados.get(planseleccionado-1));
+                  Netflix.addUsuarios(nuevousuario);
+              } else if(planseleccionado==3) {
+                     Cuenta_Usuario nuevousuario = new Usuario_Premium(correo, actividad, planesAlmacenados.get(planseleccionado - 1));
+                     Netflix.addUsuarios(nuevousuario);
+                  System.out.println("Su usuario: "+nuevousuario+"ha sido agregado exitosamente");
+                 }
+              }
+
+
+
+
+
 
            break;
 
