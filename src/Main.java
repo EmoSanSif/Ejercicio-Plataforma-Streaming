@@ -52,39 +52,35 @@ void main() {
                int actividad = teclado.nextInt();
                System.out.println("Ingrese el Plan:");
                desplegarLista(planesAlmacenados);
-               int planseleccionado= teclado.nextInt();
+               int planseleccionado = teclado.nextInt();
 
-             if(planseleccionado>=1 && planseleccionado<=planesAlmacenados.size()) {
-                 PlanSuscripcion planseleccion = planesAlmacenados.get(planseleccionado - 1);
+             if(planseleccionado < 1 || planseleccionado > planesAlmacenados.size()) {
+                 System.out.println("no ta en la lista chealo papi");
+                 break;
+             }
 
-              if (planseleccionado==1){
-               Cuenta_Usuario  nuevousuario = new Usuario_Basico (correo, actividad, planesAlmacenados.get(planseleccionado-1));
+              if (planesAlmacenados.get(planseleccionado-1) instanceof Planbasico) {
+                  Cuenta_Usuario nuevousuario = new Usuario_Basico(correo, actividad, planesAlmacenados.get(planseleccionado - 1));
                   Netflix.addUsuarios(nuevousuario);
-
-                  } else if (planseleccionado==2) {
+              }
+               else if (planesAlmacenados.get(planseleccionado-1) instanceof Planestandar) {
                   Cuenta_Usuario nuevousuario= new Usuario_Estandar(correo, actividad, planesAlmacenados.get(planseleccionado-1));
                   Netflix.addUsuarios(nuevousuario);
-              } else if(planseleccionado==3) {
+              } else if(planesAlmacenados.get(planseleccionado-1) instanceof Planpremium) {
                      Cuenta_Usuario nuevousuario = new Usuario_Premium(correo, actividad, planesAlmacenados.get(planseleccionado - 1));
                      Netflix.addUsuarios(nuevousuario);
-                  System.out.println("Su usuario: "+nuevousuario+"ha sido agregado exitosamente");
-                 }
               }
-
-
-
-
-
-
+               System.out.println("Su usuario ha sido agregado exitosamente");
            break;
 
            /* X - Impresion de cuentas en cierto plan */
            case 2:
-
            break;
 
-           /* X - Impresion total de dinero de cada tipo de plan y el total */
+           /* CARLOS - Impresion total de dinero de cada tipo de plan y el total */
            case 3:
+
+               Netflix.CalcularCostoPorCuenta();
 
            break;
 

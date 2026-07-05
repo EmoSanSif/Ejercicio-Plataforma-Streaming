@@ -12,7 +12,14 @@ public class PlataformaStreaming {
     public void CalcularCostoPorCuenta(){
         for (Cuenta_Usuario cu : cuentasAlmacenadas){
             double costoTotal = cu.obtenerTotalaPagar();
-            System.out.println("el usuario: " + cu.getCorreoElectronico() + "tiene un total para pagar de: " + costoTotal);
+            System.out.println("el usuario: " + cu + " tiene un total para pagar de: " + costoTotal);
         }
     }
+
+    public void mostrarUsuarios(){
+        for (Cuenta_Usuario cu : cuentasAlmacenadas){
+            System.out.println(cu.toString());
+        }
+    }
+
 }

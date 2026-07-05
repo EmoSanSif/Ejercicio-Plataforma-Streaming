@@ -42,4 +42,11 @@ abstract class Cuenta_Usuario {
     public double obtenerTotalaPagar(){
        return PlanSeleccionado.calcularCosto(this.mesesActivo); 
     }
+
+    @Override
+    public String toString() {
+        return  correoElectronico +
+        " con una cantidad de meses: " + mesesActivo +
+                " y con el plan " + PlanSeleccionado;
+    }
 }
