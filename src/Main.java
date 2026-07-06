@@ -49,6 +49,11 @@ void main() {
                int actividad = teclado.nextInt();
                System.out.println("Ingrese el Plan:");
                desplegarLista(planesAlmacenados);
+               while (!teclado.hasNextInt()){
+                   System.out.println("opcion incorrecta!");
+                   teclado.next();
+                   System.out.println("ingrese otra opcion!");
+               }
                int planseleccionado = teclado.nextInt();
 
              if(planseleccionado < 1 || planseleccionado > planesAlmacenados.size()) {
@@ -73,17 +78,27 @@ void main() {
            /* Emilio - Impresion de cuentas en cierto plan */
            case 2:
                int plan_selec = 0;
+               boolean in = false;
 
                System.out.println("Escoga el tipo de plan del que quiere ver las cuentas ");
-                   try{
-                       desplegarLista(planesAlmacenados);
+               desplegarLista(planesAlmacenados);
+               while (!in) {
+                   try {
+                       //desplegarLista(planesAlmacenados);
                        plan_selec = teclado.nextInt();
-                   }
-                   catch(Exception ex){
-                       teclado.nextLine();
+                       in = true;
+                   } catch (Exception ex) {
                        plan_selec = 0;
                        System.out.println("Opcion ingresada incorrectamente");
+                       teclado.next();
                    }
+               }
+
+               if (plan_selec < 1 || plan_selec > planesAlmacenados.size()){
+                   System.out.println("opcion fuera de la lista!");
+                   break;
+               }
+
                    for (Cuenta_Usuario cu : Netflix.cuentasAlmacenadas) {
                        if (planesAlmacenados.get(plan_selec-1) instanceof Planbasico) {
                            if( cu instanceof Usuario_Basico) {
