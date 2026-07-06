@@ -7,7 +7,7 @@ void main() {
     PlanSuscripcion PlanBasico = new Planbasico();
     PlanSuscripcion PlanPremium = new Planpremium();
 
-    PlataformaStreaming Netflix = new PlataformaStreaming();
+    PlataformaStreaming Netflix = new PlataformaStreaming("Netflix");
 
     Cuenta_Usuario U1 = new Usuario_Basico("aa@bb.com", 12, PlanBasico);
     Cuenta_Usuario U2 = new Usuario_Estandar("aa1@bb.com", 12, PlanEstandar);
@@ -127,9 +127,20 @@ void main() {
     }while(continuar);
 
 }
+
 public void desplegarLista(ArrayList<PlanSuscripcion> ps){
     for (PlanSuscripcion p : ps){
         int indice = ps.indexOf(p);
         System.out.println((indice+1) + "--" + p);
     }
+}
+
+public PlataformaStreaming crearPlataforma(Scanner teclado) {
+
+    System.out.println("Ingrese el nombre de la plataforma");
+    String nombre = teclado.next();
+
+    PlataformaStreaming nuevaPlataforma = new PlataformaStreaming(nombre);
+
+    return nuevaPlataforma;
 }
