@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class PlataformaStreaming {
+    private String nombre;
     ArrayList<Cuenta_Usuario> cuentasAlmacenadas= new ArrayList<>();
 
     public void addUsuarios(Cuenta_Usuario us){
@@ -25,4 +26,16 @@ public class PlataformaStreaming {
         }
     }
 
+    public PlataformaStreaming(String nombre) {
+
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }
