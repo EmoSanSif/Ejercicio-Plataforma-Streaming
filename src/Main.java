@@ -21,8 +21,6 @@ void main() {
     planesAlmacenados.add(PlanEstandar);
     planesAlmacenados.add(PlanPremium);
 
-    desplegarLista(planesAlmacenados);
-
 
     boolean continuar = true;
     int opc = 0;
@@ -104,13 +102,17 @@ void main() {
                            }
                        }
                    }
-
            break;
-
            /* CARLOS - Impresion total de dinero de cada tipo de plan y el total */
            case 3:
 
-               Netflix.CalcularCostoPorCuenta();
+               if (!Netflix.cuentasAlmacenadas.isEmpty()) {
+                   Netflix.CalcularCostoPorCuenta();
+               }
+               else {
+                   System.out.println("la lista no tiene nada papi");
+               }
+
 
            break;
 
