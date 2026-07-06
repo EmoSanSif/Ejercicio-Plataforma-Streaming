@@ -151,7 +151,7 @@ public void desplegarLista(ArrayList<PlanSuscripcion> ps){
     }
 }
 
-public PlataformaStreaming crearPlataforma(Scanner teclado) {
+public PlataformaStreaming crearPlataforma(Scanner teclado) { //nigga eso nunca se va usar
 
     System.out.println("Ingrese el nombre de la plataforma");
     String nombre = teclado.next();
