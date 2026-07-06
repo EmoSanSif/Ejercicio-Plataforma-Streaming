@@ -72,7 +72,6 @@ void main() {
 
            /* Emilio - Impresion de cuentas en cierto plan */
            case 2:
-               boolean continua = true;
                int plan_selec = 0;
 
                System.out.println("Escoga el tipo de plan del que quiere ver las cuentas ");
