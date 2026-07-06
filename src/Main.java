@@ -52,7 +52,7 @@ void main() {
                int planseleccionado = teclado.nextInt();
 
              if(planseleccionado < 1 || planseleccionado > planesAlmacenados.size()) {
-                 System.out.println("no ta en la lista chealo papi");
+                 System.out.println("no ta en la lista checalo papi");
                  break;
              }
 
