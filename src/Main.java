@@ -10,8 +10,8 @@ void main() {
     PlataformaStreaming Netflix = new PlataformaStreaming();
 
     Cuenta_Usuario U1 = new Usuario_Basico("aa@bb.com", 12, PlanBasico);
-    Cuenta_Usuario U2 = new Usuario_Basico("aa1@bb.com", 12, PlanEstandar);
-    Cuenta_Usuario U3 = new Usuario_Basico("aa2@bb.com", 12, PlanPremium);
+    Cuenta_Usuario U2 = new Usuario_Estandar("aa1@bb.com", 12, PlanEstandar);
+    Cuenta_Usuario U3 = new Usuario_Premium("aa2@bb.com", 12, PlanPremium);
 
     Netflix.addUsuarios(U1);
     Netflix.addUsuarios(U2);
